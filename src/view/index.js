@@ -7,6 +7,7 @@ import React from 'react'
 const App = (props) => {
     const {state, dispatch} = props
     console.log("props",props)
+
     dispatch({type: "123", payload: 1})
     return (
         <div>
