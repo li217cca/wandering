@@ -55,6 +55,13 @@ module.exports = function (opt = {}) {
                     loader: 'babel-loader',
                     options: {presets: ['es2015', 'react']}
                 }]
+            }, {
+                test: /\.css$/,
+                loaders: [
+                    'style-loader?sourceMap',
+                    'css-loader?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]'
+                ],
+                // use: [ 'style-loader', 'css-loader' ]
             }]
         },
         devServer: {

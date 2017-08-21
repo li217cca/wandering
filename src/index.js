@@ -3,16 +3,33 @@
  */
 import React from 'react'
 import { Provider } from 'react-redux'
-import { createStore } from 'redux'
+import { createStore, applyMiddleware } from 'redux'
 import ReactDOM from 'react-dom'
 import reducer from './reducer'
 import App from './view'
+import createSagaMiddleware from 'redux-saga'
+import sagas from './sagas'
 
-const store = createStore(reducer, {});
+const sagaMiddleware = createSagaMiddleware(sagas)
+const store = createStore(reducer,
+    applyMiddleware(sagaMiddleware)
+)
+sagaMiddleware.run(sagas, store)
 
 ReactDOM.render(
     <Provider store={store}>
-        <App />
+        <App/>
     </Provider>,
     document.getElementById('root')
 )
+
+window.addEventListener('keydown', (event) => {
+    store.dispatch({
+        type: "KEY_DOWN", payload: event.key
+    })
+})
+window.addEventListener('keyup', (event) => {
+    store.dispatch({
+        type: "KEY_UP", payload: event.key
+    })
+})
