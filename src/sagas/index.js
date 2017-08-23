@@ -7,8 +7,8 @@ import auth from './auth'
 
 export default function*() {
     yield takeEvery("*", (action) => {
-        // console.log("saga take", action)
+        console.log("saga take", action)
     })
-    yield fork(server)
+    // yield fork(server)
     yield fork(auth)
 }

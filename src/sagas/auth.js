@@ -18,6 +18,7 @@ const getPromise = (func) => {
 
 function *listenLogin(socket) {
     const resp = yield getPromise(curring(socket.On.bind(socket), "login"))
+    console.log("listen login", resp)
     if (resp === "success") {
         yield put({type: actions.AUTH_SUCCESS, payload: resp})
     } else {

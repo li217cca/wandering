@@ -9,6 +9,7 @@ import reducer from './reducer'
 import App from './view'
 import createSagaMiddleware from 'redux-saga'
 import sagas from './sagas'
+import server from './server'
 
 const sagaMiddleware = createSagaMiddleware(sagas)
 const store = createStore(reducer,
@@ -22,6 +23,8 @@ ReactDOM.render(
     </Provider>,
     document.getElementById('root')
 )
+
+server(store)
 
 // window.addEventListener('keydown', (event) => {
 //     store.dispatch({
