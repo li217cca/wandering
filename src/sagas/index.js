@@ -14,5 +14,4 @@ export default function*() {
     })
 
     yield put({type: "123123"})
-    // fork(watch("", load))
 }
