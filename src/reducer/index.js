@@ -3,7 +3,11 @@
  */
 import { combineReducers } from 'redux'
 import status from './status'
+import auth from './auth'
+import server from './server'
 
 export default combineReducers({
-    status
+    status,
+    auth,
+    server
 })

@@ -23,13 +23,15 @@ ReactDOM.render(
     document.getElementById('root')
 )
 
-window.addEventListener('keydown', (event) => {
-    store.dispatch({
-        type: "KEY_DOWN", payload: event.key
-    })
-})
-window.addEventListener('keyup', (event) => {
-    store.dispatch({
-        type: "KEY_UP", payload: event.key
-    })
-})
+store.dispatch({type: "CONN_REQUIRE"})
+
+// window.addEventListener('keydown', (event) => {
+//     store.dispatch({
+//         type: "KEY_DOWN", payload: event.key
+//     })
+// })
+// window.addEventListener('keyup', (event) => {
+//     store.dispatch({
+//         type: "KEY_UP", payload: event.key
+//     })
+// })
