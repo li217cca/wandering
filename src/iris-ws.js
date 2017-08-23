@@ -120,6 +120,7 @@ var Ws = (function () {
         return evt;
     };
     Ws.prototype.getCustomMessage = function (event, websocketMessage) {
+        return this.decodeMessage(event, websocketMessage)
         var eventIdx = websocketMessage.indexOf(event + websocketMessageSeparator);
         var s = websocketMessage.substring(eventIdx + event.length + websocketMessageSeparator.length + 2, websocketMessage.length);
         return s;

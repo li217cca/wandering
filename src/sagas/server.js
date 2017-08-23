@@ -2,6 +2,7 @@
  * Created by cifer on 2017/8/23.
  */
 import {fork, put, takeEvery, takeLatest, call, select} from 'redux-saga/effects'
+import actions from '../actions'
 import Ws from '../iris-ws'
 
 const getPromise = (func) => {
@@ -10,24 +11,24 @@ const getPromise = (func) => {
     })
 }
 
-function *ListenConnect(socket) {
+function *listenConnect(socket) {
     const resp = yield getPromise(socket.OnConnect.bind(socket))
-    yield put({type: "CONN_SUCCESS", payload: socket})
+    yield put({type: actions.CONN_SUCCESS, payload: socket})
     // yield socket.Disconnect()
 }
-function *ListenDisconnect(socket) {
+function *listenDisconnect(socket) {
     const resp = yield getPromise(socket.OnDisconnect.bind(socket))
-    yield put({type: "CONN_DISABLE"})
+    yield put({type: actions.CONN_DISABLE})
     // yield socket.Disconnect()
 }
 
 export default function *() {
-    yield takeLatest("CONN_REQUIRE", function *(action) {
+    yield takeLatest(actions.CONN_REQUIRE, function *(action) {
         // const socket = yield select(state => state.server.socket)
-        // console.log("socket", socket)
         const socket = yield new Ws("ws://localhost:8080/echo")
-        yield put({type: "CONN_TRYING"})
-        yield fork(ListenDisconnect, socket)
-        yield fork(ListenConnect, socket)
+        yield put({type: actions.CONN_TRYING})
+        yield fork(listenDisconnect, socket)
+        yield fork(listenConnect, socket)
     })
+    yield put({type: actions.CONN_REQUIRE})
 }

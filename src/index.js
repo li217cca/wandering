@@ -23,8 +23,6 @@ ReactDOM.render(
     document.getElementById('root')
 )
 
-store.dispatch({type: "CONN_REQUIRE"})
-
 // window.addEventListener('keydown', (event) => {
 //     store.dispatch({
 //         type: "KEY_DOWN", payload: event.key

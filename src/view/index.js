@@ -17,8 +17,8 @@ class App extends React.Component{
         if (state.server.status !== "CONN_SUCCESS") return (
             <div>connecting to server...{state.server.status}</div>
         )
-        if (!state.auth.authenticated) return (
-            <Auth/>
+        if (state.auth.status !== "AUTH_SUCCESS") return (
+            <Auth auth={state.auth} dispatch={dispatch}/>
         )
         return (
             <Interface>
