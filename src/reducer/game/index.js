@@ -6,7 +6,8 @@ export default (state = {
     party: {},
     time: {},
     scene: {
-        cards: []
+        cards: [],
+        time: 0
     }
 }, action) => {
     switch (action.type){
@@ -17,7 +18,10 @@ export default (state = {
             return {...state, time: action.payload}
         }
         case actions.GAME_GET_SCENE_SUCCESS: {
-            return {...state, scene: action.payload}
+            return {...state, scene: {...action.payload, visible: true}}
+        }
+        case actions.GAME_HANDLE_CARD: {
+            return {...state, scene: {...state.scene, visible: false}}
         }
     }
     return state

@@ -6,9 +6,10 @@ import * as actions from '../actions'
 
 export default function *() {
     yield takeLatest((action) => {
-        return action.type.includes("GAME_GET_") && !action.type.includes("SUCCESS")
+        return action.type.includes("GAME_") && !action.type.includes("SUCCESS")
     }, function *(action) {
         const socket = yield select(state => state.server.socket)
+        console.log("emit", action.type, action.payload)
         yield socket.Emit(action.type, action.payload)
     })
 }

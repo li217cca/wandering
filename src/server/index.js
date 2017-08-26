@@ -18,10 +18,15 @@ export default (store) => {
         dispatch({type: actions.CONN_DISABLE})
     })
 
-    // Api handler
+    // 转发请求
     socket.On((event) => {
         return true
     }, (event, resp) => {
+
         dispatch({type: event, payload: resp})
+        // setTimeout(() => {
+        //     console.log("dis")
+        //     dispatch({type: event, payload: resp})
+        // }, 1000)
     })
 }

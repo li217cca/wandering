@@ -2,7 +2,7 @@
  * Created by cifer on 2017/8/21.
  */
 import React from 'react'
-import {GAME_GET_PARTY, GAME_GET_TIME} from '../../actions'
+import {GAME_GET_PARTY, GAME_GET_TIME, GAME_GET_SCENE} from '../../actions'
 import Middle from './middle'
 import Bottom from './bottom'
 import Top from './Top'
@@ -15,6 +15,7 @@ class Interface extends React.Component{
     componentWillMount() {
         this.props.dispatch({type: GAME_GET_PARTY, payload: 0})
         this.props.dispatch({type: GAME_GET_TIME, payload: 0})
+        this.props.dispatch({type: GAME_GET_SCENE, payload: 0})
 
         // TODO 时间变换
         // this.interval = setInterval(() => {

@@ -1,12 +1,67 @@
-.cardList {
-    animation: cardAnimation 0.5s;
+/*.cardList {*/
+    /*animation: cardAnimation 1s infinite;*/
+/*}*/
+/*@keyframes cardAnimation*/
+/*{*/
+    /*from {max-width:320px;}*/
+    /*to {max-width:100%;}*/
+/*}*/
+.card-list {
+    height: 320px;
+    max-width: 100%;
+    display: flex;
+    box-sizing: border-box;
 }
-@keyframes cardAnimation
-{
-    from {max-width:320px;}
-    to {max-width:100%;}
+/*.hidden {*/
+    /*position: fixed;*/
+    /*left: 0;*/
+    /*right: 0;*/
+    /*top: 0;*/
+    /*bottom: 0;*/
+    /*opacity: 0.5;*/
+    /*display: flex;*/
+    /*align-items: center;*/
+    /*justify-content: center;*/
+    /*font-size: 30px;*/
+    /*z-index: 999;*/
+/*}*/
+.card-list-enter, .card-list-appear {
+    max-width: 240px;
+    animation-duration: 1s;
+    /*animation-fill-mode: both;*/
+    animation-delay: 0s;
+    animation-play-state: paused;
 }
 
-.card-list {
-    background-color: gold;
+.card-list-enter.card-list-enter-active, .card-list-appear.card-list-appear-active {
+    animation-name: cardAnimation;
+    animation-play-state: running;
 }
+
+@keyframes cardAnimation {
+    0% {
+        max-width: 240px;
+    }
+    100% {
+        max-width: 100%;
+    }
+}
+/*.card-list-leave {*/
+    /*animation-duration: 1s;*/
+    /*animation-fill-mode: both;*/
+    /*animation-play-state: paused;*/
+/*}*/
+
+/*.card-list-leave.card-list-leave-active {*/
+    /*animation-name: cardAnimationLeave;*/
+    /*animation-play-state: running;*/
+/*}*/
+
+/*@keyframes cardAnimationLeave {*/
+    /*0% {*/
+        /*max-width: 100%;*/
+    /*}*/
+    /*100% {*/
+        /*max-width: 240px;*/
+    /*}*/
+/*}*/
