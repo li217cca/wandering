@@ -15,7 +15,6 @@ class Screen extends React.Component{
     }
     render() {
         const {children} = this.props
-        console.log("props",this.props)
         //
         // dispatch({type: "123", payload: 1})
         return (

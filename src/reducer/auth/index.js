@@ -1,9 +1,10 @@
 /**
  * Created by cifer on 2017/8/23.
  */
-import actions from '../../actions'
+import * as actions from '../../actions'
 export default (state = {
-    status: actions.AUTH_DISABLE
+    status: actions.AUTH_DISABLE,
+    // user: {}
 }, action) => {
     switch (action.type) {
         case actions.AUTH_SUCCESS: return {...state, status: action.type}

@@ -4,7 +4,7 @@
 import React from 'react'
 import Input from '../../component/input'
 import Button from '../../component/button'
-import action from '../../actions'
+import * as action from '../../actions'
 
 class Auth extends React.Component{
     constructor(props) {

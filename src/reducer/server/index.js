@@ -1,7 +1,7 @@
 /**
  * Created by cifer on 2017/8/23.
  */
-import actions from '../../actions'
+import * as actions from '../../actions'
 export default (state = {
     status: actions.CONN_DISABLE,
     socket: null

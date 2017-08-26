@@ -1,0 +1,12 @@
+.cardList {
+    animation: cardAnimation 0.5s;
+}
+@keyframes cardAnimation
+{
+    from {max-width:320px;}
+    to {max-width:100%;}
+}
+
+.card-list {
+    background-color: gold;
+}

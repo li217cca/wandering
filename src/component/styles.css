@@ -1,4 +1,4 @@
-.button, .input {
+.button, .input, .card {
     border-radius: 4px;
     border: 1px solid gray;
     box-sizing: border-box;
@@ -7,7 +7,26 @@
 .input {
     line-height: 20px;
 }
-
+.card {
+    width: 240px;
+    height: 320px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    user-select: none;
+    cursor: pointer;
+}
+.card:hover {
+    z-index: 100;
+    border-color: lightskyblue;
+    border-width: 2px;
+    transition: transform 0.3s;
+    transform: scale(1.025) translateY(-4px);
+}
+.card:active {
+    border-color: gold;
+}
 
 .button {
     cursor: pointer;
@@ -19,9 +38,11 @@
 }
 .button:hover {
     border-color: lightskyblue;
+    border-width: 2px;
     color: lightskyblue;
 }
 .button:active {
     border-color: gold;
+    border-width: 2px;
     color: gold;
 }

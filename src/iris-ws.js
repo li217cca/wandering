@@ -17,6 +17,7 @@ var Ws = (function () {
         this.connectListeners = [];
         this.disconnectListeners = [];
         this.nativeMessageListeners = [];
+        this.messageFunctionListeners = []
         this.messageListeners = {};
         if (!window["WebSocket"]) {
             return;
@@ -178,6 +179,10 @@ var Ws = (function () {
         if (this.messageListeners[event] == null || this.messageListeners[event] == undefined) {
             this.messageListeners[event] = [];
         }
+        if (typeof event === "function") {
+
+            this.messageFunctionListeners.push({func: event, cb: cb})
+        }
         this.messageListeners[event].push(cb);
     };
     Ws.prototype.fireMessage = function (event, message) {
@@ -190,6 +195,9 @@ var Ws = (function () {
                 }
             }
         }
+        this.messageFunctionListeners.forEach(lis => {
+            if (lis.func(event)) lis.cb(event, message)
+        })
     };
     //
     // Ws Actions

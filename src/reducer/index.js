@@ -5,9 +5,11 @@ import { combineReducers } from 'redux'
 import status from './status'
 import auth from './auth'
 import server from './server'
+import game from './game'
 
 export default combineReducers({
     status,
     auth,
-    server
+    server,
+    game
 })
