@@ -6,7 +6,7 @@ import React from 'react'
 export default ({time}) => {
     return (
         <div>
-            <div>year {time.year} - {time.weather} - {time.day} day</div>
+            <div>Year {time.year} - {time.weather} - Day {time.day}</div>
         </div>
     )
 }

@@ -22,7 +22,7 @@ export default (store) => {
     socket.On((event) => {
         return true
     }, (event, resp) => {
-
+        console.log("receipt", event, resp)
         dispatch({type: event, payload: resp})
         // setTimeout(() => {
         //     console.log("dis")

@@ -3,36 +3,35 @@
  */
 import {connect} from 'react-redux'
 import Interface from './interface'
-import Screen from './screen'
-import Auth from './auth'
+import {Signin} from './auth'
 import React from 'react'
 import * as actions from '../actions'
+import {Redirect, withRouter, Route, Switch} from 'react-router'
+import {} from 'connected-react-router'
 
-class App extends React.Component{
-    constructor(props) {
-        super(props)
-        this.state = {}
-    }
+const Loading = connect((state) => (state))(({server}) => {
+    return <div>connecting to server...{server.status}</div>
+})
+
+class App extends React.Component {
     render() {
-        const {state, dispatch} = this.props
-        if (state.server.status !== actions.CONN_SUCCESS) return (
-            <div>connecting to server...{state.server.status}</div>
-        )
-        if (state.auth.status !== actions.AUTH_SUCCESS) return (
-            <Auth auth={state.auth} dispatch={dispatch}/>
-        )
+        const {server, auth, history} = this.props
         return (
-            <Interface dispatch={dispatch} state={state}>
-                {/*<Screen/>*/}
-            </Interface>
+            <Switch>
+                <Route path="/login" component={Signin}/>
+                <Route path="/signin" component={Signin}/>
+                <Route path="/main" render={() => {
+                    return auth.status !== actions.AUTH_SUCCESS ? <Redirect to="/login"/> : <Interface/>
+                }}/>
+                <Route path="" render={() => {
+                    if (server.status === actions.CONN_SUCCESS) {
+                        return <Redirect to="/main"/>
+                    }
+                    return <Loading/>
+                }}/>
+            </Switch>
         )
     }
 }
 
-export default connect((state) => {
-    return {
-        state
-    }
-}, (dispatch) => {
-    return {dispatch}
-})(App)
+export default withRouter(connect((state) => (state))(App))

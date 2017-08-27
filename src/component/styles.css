@@ -34,6 +34,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    box-sizing: border-box;
     color: gray;
 }
 .button:hover {
@@ -45,4 +46,31 @@
     border-color: gold;
     border-width: 2px;
     color: gold;
+}
+.card-list {
+    height: 320px;
+    max-width: 100%;
+    display: flex;
+    box-sizing: border-box;
+}
+.card-list-enter, .card-list-appear {
+    max-width: 240px;
+    animation-duration: 1s;
+    /*animation-fill-mode: both;*/
+    animation-delay: 0s;
+    animation-play-state: paused;
+}
+
+.card-list-enter.card-list-enter-active, .card-list-appear.card-list-appear-active {
+    animation-name: cardAnimation;
+    animation-play-state: running;
+}
+
+@keyframes cardAnimation {
+    0% {
+        max-width: 240px;
+    }
+    100% {
+        max-width: 100%;
+    }
 }

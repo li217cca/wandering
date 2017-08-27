@@ -4,10 +4,11 @@
 import React from 'react'
 import styles from './styles.css'
 
-export default ({style={}, onChange=()=>{}, type="text"}) => {
+export default ({style={}, onChange=()=>{}, type="text", placeholder=""}) => {
 
     return (
-        <input className={styles.input} style={style}type={type} onChange={event => {
+        <input placeholder={placeholder}
+               className={styles.input} style={style}type={type} onChange={event => {
             onChange(event.target.value)
         }}/>
     )
