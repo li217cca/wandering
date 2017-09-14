@@ -30,7 +30,7 @@ class Interface extends React.Component{
     }
     render() {
         const {children, state, dispatch, history} = this.props
-
+        console.log(state)
         return (
             <div style={{display: "flex", width: "100%", height: "100%"}}>
                 <div style={{padding: 12, width: "40%", flexGrow: 1, boxSizing: "border-box",
@@ -55,7 +55,7 @@ class Interface extends React.Component{
     }
 }
 
-export default connect(({state}) => {
+export default connect((state) => {
     return {
         state
     }

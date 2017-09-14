@@ -3,6 +3,7 @@
     user-select: none;
     cursor: pointer;
     text-decoration: none;
+    color: grey;
 }
 .signin:hover {
     color: lightskyblue;
@@ -10,6 +11,6 @@
 .signin:active {
     color: gold;
 }
-.signin:visited {
-    color: grey;
-}
+/*.signin:visited {*/
+    /*color: grey;*/
+/*}*/

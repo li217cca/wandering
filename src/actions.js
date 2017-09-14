@@ -13,6 +13,10 @@ export const AUTH_SIGNIN = "AUTH_SIGNIN"
 export const AUTH_LOGIN = "AUTH_LOGIN"
 export const AUTH_ERROR = "AUTH_ERROR"
 
+export const GAME_RECEIPT = "GAME_RECEIPT"
+export const GAME_CREATE = "GAME_CREATE"
+export const GAME_SELECT = "GAME_SELECT"
+
 // get api
 export const GAME_GET_BAG = "GAME_GET_BAG"
 export const GAME_GET_PARTY = "GAME_GET_PARTY"
