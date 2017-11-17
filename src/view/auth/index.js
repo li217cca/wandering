@@ -4,9 +4,9 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {Input, Button, Redirect} from '../../component'
-// import Input from '../../component/input'
-// import Button from '../../component/button'
-import * as action from '../../actions'
+
+import {login, signin} from '../../action'
+
 import styles from './styles.css'
 import {Link} from 'react-router-dom'
 
@@ -27,12 +27,11 @@ export const Login = connect(({auth}) => ({auth}))(
                 this.setState(s)
             }
             const handleLogin = () => {
-                dispatch({type: action.AUTH_LOGIN, payload: this.state})
+                dispatch(login({
+                    username: this.state.username,
+                    password: this.state.password
+                }))
             }
-            if (auth.status === action.AUTH_SUCCESS) {
-                return <Redirect to="/main"/>
-            }
-            const p = "<div style='background-color: aquamarine'>123123</div>"
             return (
                 <div style={{width: "100%", height: "100%",
                     display: "flex", alignItems: "center", justifyContent: "center"}}>
@@ -70,10 +69,12 @@ export const Signin = connect(({auth}) => ({auth}))(
                 this.setState(s)
             }
             const handleSignin = () => {
-                dispatch({type: action.AUTH_SIGNIN, payload: this.state})
-            }
-            if (auth.status === action.AUTH_SUCCESS) {
-                return <Redirect to="/main"/>
+                dispatch(signin({
+                    username: this.state.username,
+                    password: this.state.password,
+                    password2: this.state.password2,
+                    name: this.state.name
+                }))
             }
             return (
                 <div style={{width: "100%", height: "100%",

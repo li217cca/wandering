@@ -4,7 +4,7 @@
 import React from 'react'
 import styles from './styles.css'
 import Animate from 'rc-animate';
-import {GAME_HANDLE_CARD} from '../actions'
+import {GAME_HANDLE_CARD} from '../action'
 
 export const Card = (props) => {
     const {style={},  children, onClick=()=>{}} = props

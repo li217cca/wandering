@@ -12,6 +12,7 @@ export const AUTH_SWITCH = "AUTH_SWITCH"
 export const AUTH_SIGNIN = "AUTH_SIGNIN"
 export const AUTH_LOGIN = "AUTH_LOGIN"
 export const AUTH_ERROR = "AUTH_ERROR"
+export const AUTH_DISABLE = "AUTH_DISABLE"
 
 export const GAME_RECEIPT = "GAME_RECEIPT"
 export const GAME_CREATE = "GAME_CREATE"

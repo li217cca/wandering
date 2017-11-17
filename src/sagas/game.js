@@ -2,7 +2,7 @@
  * Created by cifer on 2017/8/25.
  */
 import {fork, put, takeEvery, takeLatest, call, select} from 'redux-saga/effects'
-import * as actions from '../actions'
+import {} from '../action'
 
 export default function *() {
     yield takeLatest((action) => {

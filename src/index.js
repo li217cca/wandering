@@ -34,7 +34,6 @@ ReactDOM.render(
     </Provider>,
     document.getElementById('root')
 )
-
 server(store)
 
 // window.addEventListener('keydown', (event) => {

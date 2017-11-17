@@ -1,19 +1,19 @@
 /**
  * Created by cifer on 2017/8/23.
  */
-import * as actions from '../../actions'
+import {CONN_DISABLE, CONN_TRYING, CONN_SUCCESS} from '../../action'
 export default (state = {
-    status: actions.CONN_DISABLE,
+    status: CONN_DISABLE,
     socket: null
 }, action) => {
     switch (action.type){
-        case actions.CONN_TRYING: {
+        case CONN_TRYING: {
             return {...state, status: action.type}
         }
-        case actions.CONN_SUCCESS: {
+        case CONN_SUCCESS: {
             return {...state, status: action.type, socket: action.payload}
         }
-        case actions.CONN_DISABLE: {
+        case CONN_DISABLE: {
             return {...state, status: action.type, socket: null}
         }
     }

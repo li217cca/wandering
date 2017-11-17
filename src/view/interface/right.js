@@ -5,7 +5,7 @@ import React from 'react'
 import {connect} from 'react-redux'
 import {Button} from '../../component'
 import styles from './styles.css'
-import {GAME_HANDLE_CARD, GAME_GET_PARTY, GAME_GET_BAG} from '../../actions'
+import {GAME_HANDLE_CARD, GAME_GET_PARTY, GAME_GET_BAG} from '../../action'
 import Animate from 'rc-animate';
 
 const CharCard = (props) => {

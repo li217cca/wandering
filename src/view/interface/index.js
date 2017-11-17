@@ -3,7 +3,7 @@
  */
 import React from 'react'
 import {connect} from 'react-redux'
-import {GAME_GET_PARTY, GAME_GET_TIME, GAME_GET_SCENE, AUTH_SUCCESS} from '../../actions'
+import {GAME_GET_PARTY, GAME_GET_TIME, GAME_GET_SCENE, AUTH_SUCCESS} from '../../action'
 import Middle from './middle'
 import Bottom from './bottom'
 import Top from './top'
