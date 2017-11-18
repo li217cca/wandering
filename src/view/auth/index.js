@@ -61,6 +61,15 @@ export const Login = connect(({auth}) => ({auth}))(
 
 export const Signin = connect(({auth}) => ({auth}))(
     class SigninClass extends React.Component{
+        constructor(props) {
+            super(props)
+            this.state = {
+                username: "",
+                password: "",
+                password2: "",
+                name: ""
+            }
+        }
         render() {
             const {auth, dispatch} = this.props
             const handleChange = (key) => (value) => {

@@ -2,10 +2,10 @@
  * Created by cifer on 2017/8/23.
  */
 import {CONN_SUCCESS, CONN_TRYING, CONN_DISABLE} from '../action'
-// import Ws from '../iris-ws'
+import * as action from '../action'
+import Ws from '../iris-ws'
 
 const Fs = (url) => {
-
     const eventListener = new Set();
     const eventGet = (event, resp) => {
         eventListener.forEach(item => {
@@ -39,6 +39,11 @@ const Fs = (url) => {
         },
         Emit: (event, payload) => {
             console.log("emit", event, payload)
+            switch (event) {
+                case action.AUTH_LOGIN: {
+                    console.log()
+                }
+            }
         }
     }
 }
@@ -49,8 +54,8 @@ export default (store) => {
 
     // connection
     dispatch({type: CONN_TRYING})
-    //const socket = new Ws("ws://localhost:8080/echo")
-    const socket = new Fs("ws://localhost:8080/echo")
+    const socket = new Ws("ws://localhost:8080/echo")
+    // const socket = new Fs("ws://localhost:8080/echo")
     socket.OnConnect(() => {
         dispatch({type: CONN_SUCCESS, payload: socket})
     })
