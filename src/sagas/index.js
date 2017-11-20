@@ -3,7 +3,7 @@
  */
 import {fork, put, takeEvery, takeLatest, call, select} from 'redux-saga/effects'
 import auth from './auth'
-import game from './game'
+import transmit from './transmit'
 
 export default function*() {
     yield takeEvery("*", (action) => {
@@ -11,5 +11,5 @@ export default function*() {
     })
     // yield fork(server)
     yield fork(auth)
-    yield fork(game)
+    yield fork(transmit)
 }

@@ -35,15 +35,15 @@ class Right extends React.Component {
     }
     render() {
         const {game, dispatch} = this.props
-        const listSwitch = {
-            party: <List Component={CharCard} items={game.party}/>,
-            bag: "null"
-        }
+        // const listSwitch = {
+        //     party: <List Component={CharCard} items={game.party}/>,
+        //     bag: "null"
+        // }
         return (
             <div style={{display: "flex", flexDirection: "column", height: "100%", padding: 12, boxSizing: "border-box"}}>
                 <div style={{marginBottom: 12}}>行动力: (100 / 100)</div>
                 <div style={{height: "10%", marginBottom: 12, flexGrow: 1}}>
-                    {listSwitch[this.state.display]}
+                    {/* {listSwitch[this.state.display]} */}
                 </div>
                 <div style={{marginBottom: 12, display: "flex", height: 36, flexShrink: 0}}>
                     <Button onClick={() => {dispatch({type: GAME_GET_BAG}); this.setState({display: "bag"})}}

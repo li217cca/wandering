@@ -81,8 +81,7 @@ export const Signin = connect(({auth}) => ({auth}))(
                 dispatch(signin({
                     username: this.state.username,
                     password: this.state.password,
-                    password2: this.state.password2,
-                    name: this.state.name
+                    password2: this.state.password2
                 }))
             }
             return (
@@ -99,11 +98,10 @@ export const Signin = connect(({auth}) => ({auth}))(
                                 <Input type="text" placeholder="用户名" autocomplete="off" onChange={handleChange("username")} style={{width: "100%"}}/>
                                 <Input type="password" placeholder="密码" autocomplete="off" onChange={handleChange("password")} style={{width: "100%", marginTop: 12}}/>
                                 <Input type="password" placeholder="请再次输入密码" autocomplete="off" onChange={handleChange("password2")} style={{width: "100%", marginTop: 12}}/>
-                                <Input type="text" placeholder="昵称" autocomplete="off" onChange={handleChange("name")} style={{width: "100%", marginTop: 12}}/>
                             </div>
                             <div style={{width: 60, paddingLeft: 12, flexShrink: 0}}>
                                 <Button style={{height: "100%"}} onClick={handleSignin}>
-                                    登陆
+                                    注册
                                 </Button>
                             </div>
                         </div>
