@@ -3,7 +3,7 @@
  */
 import {connect} from 'react-redux'
 import Interface from './interface'
-import {Signin, Login} from './auth'
+import {Signup, Login} from './auth'
 import React from 'react'
 import {AUTH_SUCCESS, CONN_SUCCESS} from '../action'
 import {withRouter, Route, Switch} from 'react-router'
@@ -25,8 +25,8 @@ class App extends React.Component {
                     <Route path="/login" render={() => {
                         return authSuccess ? <Redirect to="main"/> : <Login/>
                     }}/>
-                    <Route path="/signin" render={() => {
-                        return authSuccess ? <Redirect to="main"/> : <Signin/>
+                    <Route path="/signup" render={() => {
+                        return authSuccess ? <Redirect to="main"/> : <Signup/>
                     }}/>
                     <Route path="/main" render={() => {
                         return authSuccess ? <Interface/> : <Redirect to="/login"/>

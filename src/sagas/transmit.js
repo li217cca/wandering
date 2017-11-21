@@ -4,6 +4,7 @@ import {} from '../action'
 export default function *() {
     yield takeLatest(({type}) => {
         if (type.includes("RECEIPT")) return false
+        if (type.includes("INNER")) return false
         return type.includes("MAP_") 
             || type.includes("GAME_")
     }, function *(action) {

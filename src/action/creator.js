@@ -7,10 +7,10 @@ export const login = ({username, password}) => {
     }
 }
 
-export const signin = ({username, password, password2, name}) => {
+export const signup = ({username, password, password2}) => {
     return {
-        type: action.AUTH_SIGNIN, 
-        payload: {username, password, password2, name}
+        type: action.AUTH_SIGNUP, 
+        payload: {username, password, password2}
     }
 }
 

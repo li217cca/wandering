@@ -5,7 +5,7 @@ import React from 'react'
 import {connect} from 'react-redux'
 import {Input, Button, Redirect} from '../../component'
 
-import {login, signin} from '../../action'
+import {login, signup} from '../../action'
 
 import styles from './styles.css'
 import {Link} from 'react-router-dom'
@@ -39,7 +39,7 @@ export const Login = connect(({auth}) => ({auth}))(
                         border: "1px solid grey", borderRadius: 4}}>
                         <div style={{color: "grey"}}>
                             登陆：{auth.resp}
-                            <Link to="signin" className={styles.signin} style={{float: "right"}}>注册 >></Link>
+                            <Link to="signup" className={styles.Signup} style={{float: "right"}}>注册 >></Link>
                         </div>
                         <div style={{display: "flex", marginTop: 12}}>
                             <div>
@@ -59,8 +59,8 @@ export const Login = connect(({auth}) => ({auth}))(
     }
 )
 
-export const Signin = connect(({auth}) => ({auth}))(
-    class SigninClass extends React.Component{
+export const Signup = connect(({auth}) => ({auth}))(
+    class SignupClass extends React.Component{
         constructor(props) {
             super(props)
             this.state = {
@@ -77,8 +77,8 @@ export const Signin = connect(({auth}) => ({auth}))(
                 s[key] = value
                 this.setState(s)
             }
-            const handleSignin = () => {
-                dispatch(signin({
+            const handleSignup = () => {
+                dispatch(signup({
                     username: this.state.username,
                     password: this.state.password,
                     password2: this.state.password2
@@ -91,7 +91,7 @@ export const Signin = connect(({auth}) => ({auth}))(
                         border: "1px solid grey", borderRadius: 4}}>
                         <div style={{color: "grey"}}>
                             注册：{auth.resp}
-                            <Link to="login" className={styles.signin} style={{float: "right"}}>返回 >></Link>
+                            <Link to="login" className={styles.Signup} style={{float: "right"}}>返回 >></Link>
                         </div>
                         <div style={{display: "flex", marginTop: 12}}>
                             <div>
@@ -100,7 +100,7 @@ export const Signin = connect(({auth}) => ({auth}))(
                                 <Input type="password" placeholder="请再次输入密码" autocomplete="off" onChange={handleChange("password2")} style={{width: "100%", marginTop: 12}}/>
                             </div>
                             <div style={{width: 60, paddingLeft: 12, flexShrink: 0}}>
-                                <Button style={{height: "100%"}} onClick={handleSignin}>
+                                <Button style={{height: "100%"}} onClick={handleSignup}>
                                     注册
                                 </Button>
                             </div>

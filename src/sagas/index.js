@@ -4,6 +4,7 @@
 import {fork, put, takeEvery, takeLatest, call, select} from 'redux-saga/effects'
 import auth from './auth'
 import transmit from './transmit'
+import { AUTH_BIND } from '../action/action';
 
 export default function*() {
     yield takeEvery("*", (action) => {

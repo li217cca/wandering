@@ -11,9 +11,11 @@ export const CONN_TRYING = "CONN_TRYING"    // no server
 export const AUTH_DISABLE = "AUTH_DISABLE"  // no server
 export const AUTH_SWITCH = "AUTH_SWITCH"    // no server
 export const AUTH_SUCCESS = "AUTH_SUCCESS"
-export const AUTH_SIGNIN = "AUTH_SIGNIN"
+export const AUTH_SIGNUP = "AUTH_SIGNUP"
 export const AUTH_LOGIN = "AUTH_LOGIN"
+export const AUTH_BIND = "AUTH_BIND"
 export const AUTH_ERROR = "AUTH_ERROR"
+export const TOKEN_RECEIPT = "TOKEN_RECEIPT"
 
 // game api
 export const GAME_CREATE = "GAME_CREATE"
