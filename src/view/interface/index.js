@@ -6,11 +6,9 @@ import {connect} from 'react-redux'
 import {GAME_GET_PARTY, GAME_GET_TIME, GAME_GET_SCENE, AUTH_SUCCESS} from '../../action'
 import Middle from './middle'
 import Bottom from './bottom'
-// import Top from './top'
 import Right from './right'
-import SelectCreateGame from './selectCreateGame'
-import {CardList} from '../../component/card'
 import {Redirect} from 'react-router'
+import { SelectCreateGame } from './selectCreateGame/index';
 
 class Interface extends React.Component{
     constructor(props) {
@@ -31,10 +29,10 @@ class Interface extends React.Component{
     }
     render() {
         const {children, state, dispatch, history} = this.props
-        console.log("state", state)
         if (!state.game.info) {
             return <SelectCreateGame dispatch={dispatch} list={state.game.list}/>
         }
+        console.log("state", state)
         return (
             <div style={{display: "flex", width: "100%", height: "100%"}}>
                 <div style={{padding: 12, width: "40%", flexGrow: 1, boxSizing: "border-box",

@@ -3,8 +3,6 @@
  */
 import React from 'react'
 import {connect} from 'react-redux'
-import {HoverCard} from '../../component/card'
-import styles from './styles.css'
 import {GAME_HANDLE_CARD} from '../../action'
 import Animate from 'rc-animate';
 

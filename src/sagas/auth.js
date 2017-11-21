@@ -3,7 +3,7 @@
  */
 import {fork, put, takeEvery, takeLatest, call, select, TakeEffect} from 'redux-saga/effects'
 import {AUTH_LOGIN, AUTH_SIGNUP, AUTH_SUCCESS, AUTH_ERROR} from '../action'
-import { AUTH_BIND, CONN_SUCCESS, TOKEN_RECEIPT } from '../action/action';
+import { AUTH_BIND, CONN_SUCCESS, TOKEN_RECEIPT, AUTH_DISABLE } from '../action/action';
 
 export default function *() {
     yield takeLatest(AUTH_LOGIN, function *(action) {
@@ -13,8 +13,10 @@ export default function *() {
     yield takeLatest(AUTH_BIND, function *(action) {
         const socket = yield select(state => state.server.socket)
         const token = localStorage.getItem("token")
-        if (!token || token.length < 1) return
-        console.log("Try bind", token, socket)
+        if (!token || token.length < 1) {
+            yield put({type: AUTH_DISABLE})
+            return
+        }
         yield socket.Emit(AUTH_BIND, token)
     })
     yield takeLatest(AUTH_ERROR, function *(action) {

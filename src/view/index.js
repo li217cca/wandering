@@ -6,9 +6,10 @@ import Interface from './interface'
 import {Signup, Login} from './auth'
 import React from 'react'
 import {AUTH_SUCCESS, CONN_SUCCESS} from '../action'
-import {withRouter, Route, Switch} from 'react-router'
-import Redirect from '../component/redirect'
+import {withRouter, Route, Switch, Redirect} from 'react-router'
 import {} from 'connected-react-router'
+import { Background } from './interface/background/index'
+// const Background = () => <div/>
 
 const Loading = connect((state) => (state))(({server}) => {
     return <div>connecting to server...{server.status}</div>
@@ -19,7 +20,7 @@ class App extends React.Component {
         const authSuccess = auth.status === AUTH_SUCCESS
         const connSuccess = server.status === CONN_SUCCESS
         return (
-            <div style={{height: "100%"}}>
+            <Background>
                 {connSuccess ? 
                 <Switch>
                     <Route path="/login" render={() => {
@@ -34,7 +35,7 @@ class App extends React.Component {
                 </Switch>
                 : <Loading/>
                 }
-            </div>
+            </Background>
         )
     }
 }

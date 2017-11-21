@@ -3,12 +3,14 @@
  */
 import React from 'react'
 import {connect} from 'react-redux'
-import {Input, Button, Redirect} from '../../component'
 
 import {login, signup} from '../../action'
 
 import styles from './styles.css'
 import {Link} from 'react-router-dom'
+import { Button } from '../../component/button';
+import { Input } from '../../component/input';
+import { Redirect } from 'react-router';
 
 export const Login = connect(({auth}) => ({auth}))(
     class LoginClass extends React.Component{

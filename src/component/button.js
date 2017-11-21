@@ -4,10 +4,10 @@
 import React from 'react'
 import styles from './styles.css'
 
-export default ({style={}, onClick=()=>{}, children}) => {
 
+export const Button = ({style={}, onClick=()=>{}, children, className=""}) => {
     return (
-        <div className={styles.button} style={style} onClick={event => {
+        <div className={className + " "+ styles.button} style={style} onClick={event => {
             onClick()
         }}>
             {children}

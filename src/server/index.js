@@ -67,7 +67,10 @@ export default (store) => {
     socket.On((event) => {
         return true
     }, (event, resp) => {
-        console.log("receipt", event, resp)
+        const filter = ["AUTH_SUCCESS", "TOKEN"]
+        if (filter.filter(key => event.includes(key)).length === 0) {
+            console.log("receipt", event, resp)
+        }
         dispatch({type: event, payload: resp})
         // setTimeout(() => {
         //     console.log("dis")
