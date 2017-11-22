@@ -19,6 +19,14 @@ export const AUTH_BIND = "AUTH_BIND"
 export const AUTH_ERROR = "AUTH_ERROR"
 export const TOKEN_RECEIPT = "TOKEN_RECEIPT"
 
+// inner error api
+export const INFO_AUTO = "INFO_AUTO"
+export const INFO_CREATE = "INFO_CREATE"
+export const INFO_DELETE = "INFO_DELETE"
+// loading api
+export const LOADING_AWAIT = "LOADING_AWAIT" // no server
+export const LOADING_FINISH = "LOADING_FINISH" // no server
+
 // game api
 export const GAME_CREATE = "GAME_CREATE"
 export const GAME_SELECT = "GAME_SELECT"

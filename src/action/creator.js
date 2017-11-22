@@ -1,4 +1,4 @@
-import { GAME_SELECT, AUTH_SIGNUP, AUTH_LOGIN, GAME_CREATE, MAP_SEARCH, GAME_CHANGE_VIEW_INNER } from './action';
+import { GAME_SELECT, AUTH_SIGNUP, AUTH_LOGIN, GAME_CREATE, MAP_SEARCH, GAME_CHANGE_VIEW_INNER, ERROR_INNER, INFO_AUTO } from './action';
 
 // auth
 export const login = ({username, password}) => ({
@@ -8,6 +8,11 @@ export const login = ({username, password}) => ({
 export const signup = ({username, password, password2}) => ({
     type: AUTH_SIGNUP,
     payload: {username, password, password2}
+})
+// error
+export const newInfo = (message, time=2000) => ({
+    type: INFO_AUTO,
+    payload: {message, time}
 })
 
 // game

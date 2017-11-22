@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { createGame, selectGame, changeView, ViewCreateGame, ViewSelectGame } from '../../../action/creator';
+import { createGame, selectGame, changeView, ViewCreateGame, ViewSelectGame, newInfo } from '../../../action/creator';
 import { Input } from '../../../component/input';
 import { Button } from '../../../component/button';
 import { connect } from 'react-redux';
@@ -20,7 +20,7 @@ class CreateGame extends React.Component {
         const {dispatch} = this.props
         const handleClick = () => {
             if (!this.state.name || !this.state.name instanceof String || this.state.name.length < 1) {
-                console.error("CreateGame handleClick err name =", this.state.name)
+                dispatch(newInfo("请输入角色名称", 1500))
                 return
             }
             dispatch(createGame(this.state.name))

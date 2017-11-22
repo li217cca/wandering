@@ -4,4 +4,23 @@
     width: 100%;
     height: 100%;
     color: whitesmoke;
+    display: flex;
+    justify-content: center;
+
+    animation: backgroundAnimation 5s infinite;
+}
+
+@keyframes backgroundAnimation {
+    0% {
+        background: #234;
+    }
+    33% {
+        background: #342;
+    }
+    66% {
+        background: #423;
+    }
+    100% {
+        background: #234;
+    }
 }
