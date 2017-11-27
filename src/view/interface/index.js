@@ -32,7 +32,6 @@ class Interface extends React.Component{
         if (!state.game.info) {
             return <SelectCreateGame dispatch={dispatch} list={state.game.list}/>
         }
-        console.log("state", state)
         return (
             <div style={{display: "flex", width: "100%", height: "100%"}}>
                 <div style={{padding: 12, width: "40%", flexGrow: 1, boxSizing: "border-box",

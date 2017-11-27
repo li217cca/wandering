@@ -17,18 +17,13 @@ export default (state = {
         case GAME_RECEIPT: {
             const game = action.payload
             const now_map = game.maps.find(map => map.id === game.map_id)
+            game.maps.forEach(map => {
+                state.mapIDMap.set(map.id, map)
+            })
             return {
                 ...state, 
                 info: game,
-                map: now_map,
-                mapIDMap: game.maps.reduce((IDMap, map) => {
-                    console.log("IDMAP", IDMap)
-                    if (!(IDMap instanceof Map)) {
-                        return new Map().set(IDMap.id, IDMap).set(map.id, map)
-                    }
-                    console.log("IDMAP", IDMap)
-                    return IDMap.set(map.id, map)
-                })
+                map: now_map
             }
         }
         case GAME_CHANGE_VIEW_INNER: {

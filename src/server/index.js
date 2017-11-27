@@ -69,7 +69,7 @@ export default (store) => {
     }, (event, resp) => {
         const filter = ["AUTH_SUCCESS", "TOKEN"]
         if (filter.filter(key => event.includes(key)).length === 0) {
-            console.log("receipt", event, resp)
+            console.log("%c"+event, "color: blue", resp)
         }
         dispatch({type: event, payload: resp})
         // setTimeout(() => {
