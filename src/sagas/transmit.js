@@ -5,8 +5,11 @@ export default function *() {
     yield takeLatest(({type}) => {
         if (type.includes("RECEIPT")) return false
         if (type.includes("INNER")) return false
-        return type.includes("MAP_") 
-            || type.includes("GAME_")
+        if (type.includes("SUCCESS")) return false
+        if (type.includes("ERROR")) return false
+        return type.includes("MAP") 
+            || type.includes("GAME")
+            || type.includes("QUEST")
     }, function *(action) {
         const socket = yield select(state => state.server.socket)
         const request = action.payload !== undefined ?  action.payload : 0
